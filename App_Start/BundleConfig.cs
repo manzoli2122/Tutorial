@@ -19,12 +19,22 @@ namespace Tutorial
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+              //        "~/Scripts/bootstrap.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                     "~/Content/AdminLTE/plugins/bootstrap/js/bootstrap.js"));
+
+
+            bundles.Add(new ScriptBundle("~/bundles/adminlte").Include(
+                     "~/Content/AdminLTE/dist/js/adminlte.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      
+                      //"~/Content/bootstrap.css",
+                      "~/Content/AdminLTE/plugins/bootstrap/css/bootstrap.css",
+                      "~/Content/AdminLTE/dist/css/adminlte.css"
+                      ));
         }
     }
 }
