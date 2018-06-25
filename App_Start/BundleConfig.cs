@@ -33,6 +33,8 @@ namespace Tutorial
                       
                       //"~/Content/bootstrap.css",
                       "~/Content/AdminLTE/plugins/bootstrap/css/bootstrap.css",
+                      "~/Content/AdminLTE/plugins/font-awesome/css/font-awesome.min.css",
+                    //  "~/Content/AdminLTE/dist/css/adminlte.css",
                       "~/Content/AdminLTE/dist/css/adminlte.css"
                       ));
         }
