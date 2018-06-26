@@ -1,54 +1,29 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
+using Tutorial.Models;
+
+
 
 namespace Tutorial.Persistence
 {
     public class Context : IdentityDbContext<Usuario>
-    {
+    { 
 
+        public Context() : base("DefaultConnection", throwIfV1Schema: false) { }
 
+         
+        //public DbSet<Cavalo> Cavalos { get; set; }
 
-
-        public Context() : base("OracleDbContext", throwIfV1Schema: false) { }
-
-
-        public DbSet<ISEO> Iseos { get; set; }
-
-        public DbSet<Viagem> Viagens { get; set; }
-
-        public DbSet<Alocacao> Alocacoes { get; set; }
-
-        public DbSet<Setor> Setores { get; set; }
-
-        public DbSet<Funcao> Funcoes { get; set; }
-
-        public DbSet<Cavalo> Cavalos { get; set; }
-
-        public DbSet<Endereco> Enderecos { get; set; }
-
-        public DbSet<Viatura> Viaturas { get; set; }
-
-        public DbSet<DispensaMedica> DispensaMedicas { get; set; }
-
-        public DbSet<Dispensa> Dispensas { get; set; }
-
-        public DbSet<TrocaDeServico> TrocaDeServico { get; set; }
-
-
-        public DbSet<ServicoAdicional> ServicoAdicionais { get; set; }
-
-        public DbSet<Chamada> Chamada { get; set; }
-
-        public DbSet<ChamadaVTR> ChamadaVTR { get; set; }
-
-        public DbSet<ChamadaMontado> ChamadaMontado { get; set; }
-
-
+         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("CASA");
+            //modelBuilder.HasDefaultSchema("CASA");
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
 
@@ -57,11 +32,7 @@ namespace Tutorial.Persistence
                 .ToTable("Usuarios")
                 .Property(p => p.Id)
                 .HasColumnName("UsuarioId");
-
-            modelBuilder.Entity<Usuario>()
-                .HasRequired(s => s.endereco)
-                .WithRequiredPrincipal(a => a.Usuario)
-                .WillCascadeOnDelete();
+             
 
             modelBuilder.Entity<Usuario>()
                .ToTable("Usuarios")
@@ -92,15 +63,7 @@ namespace Tutorial.Persistence
            .Configure(p => p.HasMaxLength(256));
 
 
-            modelBuilder.Entity<ChamadaVTR>()
-           .HasRequired(b => b.Chamada)
-           .WithMany(b => b.chamadaVTR)
-           .WillCascadeOnDelete(true);
-
-            modelBuilder.Entity<ChamadaMontado>()
-           .HasRequired(b => b.Chamada)
-           .WithMany(b => b.ChamadaMontado)
-           .WillCascadeOnDelete(true);
+            
 
         }
 

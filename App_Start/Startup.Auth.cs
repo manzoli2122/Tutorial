@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Tutorial.Models;
+using Tutorial.Persistence;
 
 namespace Tutorial
 {
@@ -15,7 +16,7 @@ namespace Tutorial
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure o contexto db, gerenciador de usuários e gerenciador de login para usar uma única instância por solicitação
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(Context.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
@@ -30,7 +31,7 @@ namespace Tutorial
                 {
                     // Permite que o aplicativo valide o carimbo de segurança quando o usuário efetuar login.
                     // Este é um recurso de segurança que é usado quando você altera uma senha ou adiciona um login externo à sua conta.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, Usuario>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
