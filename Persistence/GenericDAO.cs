@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Tutorial.Persistence
 {
-    public abstract class GenericDAO<TEntity> : InterfaceDAO<TEntity> where TEntity : class
+    public abstract class GenericDAO<TEntity> : IGenericDAO<TEntity> where TEntity : class
     {
 
 
@@ -30,48 +30,82 @@ namespace Tutorial.Persistence
 
 
 
+        public long retrieveCount()
+        {
+            return ContextManager.Set<TEntity>().LongCount();
+        }
+
+
+
+        public List<TEntity> retrieveAll()
+        {
+            return ContextManager.Set<TEntity>().ToList();
+        }
+
+
+
+        public IQueryable<TEntity> GetAll()
+        {
+            return ContextManager.Set<TEntity>();
+        }
+
+
+
+        public List<TEntity> retrieveSome(int[] interval)
+        {
+            return ContextManager.Set<TEntity>().Skip( interval[0]).Take(interval[1] - interval[0]).ToList();
+        }
+
+
+
+        public TEntity retrieveById(long id)
+        {
+            return ContextManager.Set<TEntity>().Find(id);
+        }
+
+
+
+        public TEntity Find(int id)
+        {
+            return ContextManager.Set<TEntity>().Find(id);
+        }
+
+         
+
+        public virtual Task<int> Save(TEntity entity)
+        {
+            ContextManager.Set<TEntity>().Add(entity); 
+            return ContextManager.SaveChangesAsync(); 
+        }
+
+          
+
+        public virtual Task<int> Update(TEntity entity)
+        {
+            ContextManager.Entry(entity).State = EntityState.Modified; 
+            return ContextManager.SaveChangesAsync(); 
+        }
+         
+          
+
+        public Task<int> Delete(TEntity entity)
+        { 
+            ContextManager.Set<TEntity>().Remove(entity);
+            return ContextManager.SaveChangesAsync(); 
+        }
+
+         
+
+
+        /*
+
         public DbSet<TEntity> ConjutoDeDados()
         {
             return ContextManager.Set<TEntity>();
 
         }
 
-
-
-
-        public virtual Task<int> Save(TEntity entity)
-        {
-            ContextManager.Set<TEntity>().Add(entity);
-
-            return ContextManager.SaveChangesAsync();
-
-        }
-
-
-
-
-
-        public virtual Task<int> Update(TEntity entity)
-        {
-            ContextManager.Entry(entity).State = EntityState.Modified;
-
-            return ContextManager.SaveChangesAsync();
-
-        }
-
-
-
-
-
-
-
-        public Task<int> Delete(TEntity entity)
-        {
-
-            ContextManager.Set<TEntity>().Remove(entity);
-            return ContextManager.SaveChangesAsync();
-
-        }
+        */
 
 
 
@@ -81,18 +115,7 @@ namespace Tutorial.Persistence
 
         }
 
-
-
-
-        public IQueryable<TEntity> GetAll()
-        {
-            return ContextManager.Set<TEntity>();
-            //return null;
-        }
-
-
-
-
+          
 
     }
 }

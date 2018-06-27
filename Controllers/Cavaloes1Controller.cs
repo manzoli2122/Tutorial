@@ -21,6 +21,9 @@ namespace Tutorial.Controllers
          
         private ICavaloService _cavaloService;
 
+
+
+
         public Cavaloes1Controller(  ICavaloService cavaloService)
         {            
             _cavaloService = cavaloService;
@@ -46,7 +49,10 @@ namespace Tutorial.Controllers
         [ResponseType(typeof(Cavalo))]
         public IHttpActionResult GetCavalo(int id)
         {
-            Cavalo cavalo = db.Cavalos.Find(id);
+            //Cavalo cavalo = db.Cavalos.Find(id);
+
+            Cavalo cavalo = _cavaloService.GetCavalo(id);
+
             if (cavalo == null)
             {
                 return NotFound();
@@ -54,6 +60,14 @@ namespace Tutorial.Controllers
 
             return Ok(cavalo);
         }
+
+
+
+
+
+
+
+
 
         // PUT: api/Cavaloes1/5
         [ResponseType(typeof(void))]

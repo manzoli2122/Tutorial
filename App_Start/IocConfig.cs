@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using Ninject;
 using Ninject.Syntax;
@@ -23,19 +24,21 @@ namespace Tutorial.App_Start
 
             kernel.Bind<ICavaloService>().To<CavaloService>();
 
+            //GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+
             //Registra o container no ASP.NET
-            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            DependencyResolver.SetResolver(new NinjectDependencyResolver1(kernel));
         }
 
 
     }
 
-
-    public class NinjectDependencyResolver : IDependencyResolver
+     
+    public class NinjectDependencyResolver1 : IDependencyResolver
     {
         private readonly IResolutionRoot _resolutionRoot;
 
-        public NinjectDependencyResolver(IResolutionRoot kernel)
+        public NinjectDependencyResolver1(IResolutionRoot kernel)
         {
             _resolutionRoot = kernel;
         }
@@ -50,4 +53,7 @@ namespace Tutorial.App_Start
             return _resolutionRoot.GetAll(serviceType);
         }
     }
+
+    
+
 }

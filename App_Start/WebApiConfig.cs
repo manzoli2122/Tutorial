@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Tutorial.App_Start;
 
 namespace Tutorial
 {
@@ -10,6 +11,9 @@ namespace Tutorial
         public static void Register(HttpConfiguration config)
         {
             // Serviços e configuração da API da Web
+
+
+            IocConfig.ConfigurarDependencias();
 
             // Rotas da API da Web
             config.MapHttpAttributeRoutes();

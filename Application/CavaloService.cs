@@ -38,5 +38,12 @@ namespace Tutorial.Application
 
 
 
+        public Cavalo GetCavalo(int id)
+        {
+            Cavalo cavalo = _db.Find(id);
+            return cavalo; 
+        }
+
+
     }
 }

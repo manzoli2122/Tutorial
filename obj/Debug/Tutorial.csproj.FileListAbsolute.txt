@@ -286,3 +286,10 @@ C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Mi
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate2.resources
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.dll
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.xml
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.dll
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.WebHost.dll
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.WebApi.dll
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\WebActivatorEx.dll
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.xml
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.WebHost.xml
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.WebApi.xml

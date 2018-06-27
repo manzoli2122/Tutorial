@@ -14,5 +14,8 @@ namespace Tutorial.Application
         bool Cadastrar(Cavalo cavalo);
 
         IQueryable<Cavalo> GetCavalos();
+
+
+        Cavalo GetCavalo(int id);
     }
 }

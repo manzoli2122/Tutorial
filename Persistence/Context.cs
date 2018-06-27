@@ -23,7 +23,7 @@ namespace Tutorial.Persistence
          
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.HasDefaultSchema("CASA");
+             
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
 
@@ -40,7 +40,7 @@ namespace Tutorial.Persistence
                .HasColumnName("UsuarioId");
 
             modelBuilder.Entity<IdentityUserRole>()
-               .ToTable("UsuariorPapel");
+               .ToTable("UsuariorPerfil");
 
             modelBuilder.Entity<IdentityUserLogin>()
                .ToTable("Logins");
@@ -49,7 +49,7 @@ namespace Tutorial.Persistence
                .ToTable("Claims");
 
             modelBuilder.Entity<IdentityRole>()
-               .ToTable("Papeis");
+               .ToTable("Perfil");
 
             modelBuilder
             .Properties()
@@ -62,9 +62,7 @@ namespace Tutorial.Persistence
                       p.GetCustomAttributes(typeof(MaxLengthAttribute), false).Length == 0)
            .Configure(p => p.HasMaxLength(256));
 
-
-            
-
+             
         }
 
 
@@ -73,9 +71,6 @@ namespace Tutorial.Persistence
             return new Context();
         }
 
-
-
-
-
+         
     }
 }
