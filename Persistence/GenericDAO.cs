@@ -84,6 +84,14 @@ namespace Tutorial.Persistence
 
 
 
+        public IQueryable<TEntity> GetAll()
+        {
+            return ContextManager.Set<TEntity>();
+            //return null;
+        }
+
+
+
 
 
     }

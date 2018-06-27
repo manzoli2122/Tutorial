@@ -31,5 +31,12 @@ namespace Tutorial.Application
         }
 
 
+        public IQueryable<Cavalo> GetCavalos()
+        { 
+            return _db.GetAll();
+        }
+
+
+
     }
 }
