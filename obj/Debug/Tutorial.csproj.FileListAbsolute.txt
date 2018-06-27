@@ -283,3 +283,6 @@ C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.pd
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate.resources
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.GenerateResource.cache
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate1.resources
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate2.resources
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.dll
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.xml

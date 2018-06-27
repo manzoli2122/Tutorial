@@ -1,5 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using Tutorial.Persistence;
+
 
 [assembly: OwinStartupAttribute(typeof(Tutorial.Startup))]
 namespace Tutorial
@@ -10,5 +12,10 @@ namespace Tutorial
         {
             ConfigureAuth(app);
         }
+
+        
+
+
+
     }
 }

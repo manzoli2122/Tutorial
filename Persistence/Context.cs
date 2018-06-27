@@ -18,7 +18,7 @@ namespace Tutorial.Persistence
         public Context() : base("DefaultConnection", throwIfV1Schema: false) { }
 
          
-        //public DbSet<Cavalo> Cavalos { get; set; }
+        public DbSet<Cavalo> Cavalos { get; set; }
 
          
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
