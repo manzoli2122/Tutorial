@@ -8,7 +8,9 @@ using Tutorial.Persistence;
 
 namespace Tutorial.Application
 {
-    public class CavaloService : ICavaloService
+
+    // [Authorize]
+    public class CavaloService : CrudService<Cavalo> , ICavaloService
     {
 
 
@@ -22,6 +24,15 @@ namespace Tutorial.Application
         }
 
 
+
+        public override IGenericDAO<Cavalo> getDAO()
+        {
+            return _db;
+        }
+
+
+
+
         public bool Cadastrar(Cavalo cavalo)
         {
 
@@ -32,7 +43,8 @@ namespace Tutorial.Application
 
 
         public IQueryable<Cavalo> GetCavalos()
-        { 
+        {
+            //return null;
             return _db.GetAll();
         }
 
@@ -44,6 +56,6 @@ namespace Tutorial.Application
             return cavalo; 
         }
 
-
+        
     }
 }

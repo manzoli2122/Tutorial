@@ -7,15 +7,19 @@ using Tutorial.Models;
 
 namespace Tutorial.Application
 {
-    public interface ICavaloService
+    public interface ICavaloService : ICrudService<Cavalo>
     {
 
 
-        bool Cadastrar(Cavalo cavalo);
+        //bool Cadastrar(Cavalo cavalo);
 
-        IQueryable<Cavalo> GetCavalos();
+        //IQueryable<Cavalo> GetCavalos();
 
 
-        Cavalo GetCavalo(int id);
+        //Cavalo GetCavalo(int id);
+
+
+
+
     }
 }

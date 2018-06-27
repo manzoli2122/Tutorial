@@ -218,7 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\CavaloService.cs" />
+    <Compile Include="Application\CrudService.cs" />
     <Compile Include="Application\ICavaloService.cs" />
+    <Compile Include="Application\ICrudService.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -235,17 +237,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806261030332_InitialCreate.cs" />
-    <Compile Include="Migrations\201806261030332_InitialCreate.Designer.cs">
-      <DependentUpon>201806261030332_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806261032429_InitialCreate1.cs" />
-    <Compile Include="Migrations\201806261032429_InitialCreate1.Designer.cs">
-      <DependentUpon>201806261032429_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806261822188_InitialCreate2.cs" />
-    <Compile Include="Migrations\201806261822188_InitialCreate2.Designer.cs">
-      <DependentUpon>201806261822188_InitialCreate2.cs</DependentUpon>
+    <Compile Include="Migrations\201806272249244_InitialCreate.cs" />
+    <Compile Include="Migrations\201806272249244_InitialCreate.Designer.cs">
+      <DependentUpon>201806272249244_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -256,7 +250,7 @@
     <Compile Include="Persistence\Context.cs" />
     <Compile Include="Persistence\GenericDAO.cs" />
     <Compile Include="Persistence\ICavaloDAO.cs" />
-    <Compile Include="Persistence\InterfaceDAO.cs" />
+    <Compile Include="Persistence\IGenericDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -344,14 +338,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806261030332_InitialCreate.resx">
-      <DependentUpon>201806261030332_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806261032429_InitialCreate1.resx">
-      <DependentUpon>201806261032429_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806261822188_InitialCreate2.resx">
-      <DependentUpon>201806261822188_InitialCreate2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806272249244_InitialCreate.resx">
+      <DependentUpon>201806272249244_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

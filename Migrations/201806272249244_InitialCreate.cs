@@ -8,7 +8,21 @@ namespace Tutorial.Migrations
         public override void Up()
         {
             CreateTable(
-                "CASA.Papeis",
+                "dbo.Cavalo",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Nome = c.String(nullable: false, maxLength: 256, unicode: false),
+                        Nascimento = c.DateTime(nullable: false),
+                        Numero = c.Int(nullable: false),
+                        Ativo = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .Index(t => t.Nome, unique: true)
+                .Index(t => t.Numero, unique: true);
+            
+            CreateTable(
+                "dbo.Perfil",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 256, unicode: false),
@@ -18,7 +32,7 @@ namespace Tutorial.Migrations
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
-                "CASA.UsuariorPapel",
+                "dbo.UsuariorPerfil",
                 c => new
                     {
                         UserId = c.String(nullable: false, maxLength: 256, unicode: false),
@@ -26,13 +40,13 @@ namespace Tutorial.Migrations
                         IdentityUser_Id = c.String(maxLength: 256, unicode: false),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("CASA.Papeis", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("CASA.Usuarios", t => t.IdentityUser_Id)
+                .ForeignKey("dbo.Perfil", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.Usuarios", t => t.IdentityUser_Id)
                 .Index(t => t.RoleId)
                 .Index(t => t.IdentityUser_Id);
             
             CreateTable(
-                "CASA.Usuarios",
+                "dbo.Usuarios",
                 c => new
                     {
                         UsuarioId = c.String(nullable: false, maxLength: 256, unicode: false),
@@ -53,7 +67,7 @@ namespace Tutorial.Migrations
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
-                "CASA.Claims",
+                "dbo.Claims",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -63,11 +77,11 @@ namespace Tutorial.Migrations
                         IdentityUser_Id = c.String(maxLength: 256, unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("CASA.Usuarios", t => t.IdentityUser_Id)
+                .ForeignKey("dbo.Usuarios", t => t.IdentityUser_Id)
                 .Index(t => t.IdentityUser_Id);
             
             CreateTable(
-                "CASA.Logins",
+                "dbo.Logins",
                 c => new
                     {
                         LoginProvider = c.String(nullable: false, maxLength: 256, unicode: false),
@@ -76,28 +90,31 @@ namespace Tutorial.Migrations
                         IdentityUser_Id = c.String(maxLength: 256, unicode: false),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("CASA.Usuarios", t => t.IdentityUser_Id)
+                .ForeignKey("dbo.Usuarios", t => t.IdentityUser_Id)
                 .Index(t => t.IdentityUser_Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("CASA.UsuariorPapel", "IdentityUser_Id", "CASA.Usuarios");
-            DropForeignKey("CASA.Logins", "IdentityUser_Id", "CASA.Usuarios");
-            DropForeignKey("CASA.Claims", "IdentityUser_Id", "CASA.Usuarios");
-            DropForeignKey("CASA.UsuariorPapel", "RoleId", "CASA.Papeis");
-            DropIndex("CASA.Logins", new[] { "IdentityUser_Id" });
-            DropIndex("CASA.Claims", new[] { "IdentityUser_Id" });
-            DropIndex("CASA.Usuarios", "UserNameIndex");
-            DropIndex("CASA.UsuariorPapel", new[] { "IdentityUser_Id" });
-            DropIndex("CASA.UsuariorPapel", new[] { "RoleId" });
-            DropIndex("CASA.Papeis", "RoleNameIndex");
-            DropTable("CASA.Logins");
-            DropTable("CASA.Claims");
-            DropTable("CASA.Usuarios");
-            DropTable("CASA.UsuariorPapel");
-            DropTable("CASA.Papeis");
+            DropForeignKey("dbo.UsuariorPerfil", "IdentityUser_Id", "dbo.Usuarios");
+            DropForeignKey("dbo.Logins", "IdentityUser_Id", "dbo.Usuarios");
+            DropForeignKey("dbo.Claims", "IdentityUser_Id", "dbo.Usuarios");
+            DropForeignKey("dbo.UsuariorPerfil", "RoleId", "dbo.Perfil");
+            DropIndex("dbo.Logins", new[] { "IdentityUser_Id" });
+            DropIndex("dbo.Claims", new[] { "IdentityUser_Id" });
+            DropIndex("dbo.Usuarios", "UserNameIndex");
+            DropIndex("dbo.UsuariorPerfil", new[] { "IdentityUser_Id" });
+            DropIndex("dbo.UsuariorPerfil", new[] { "RoleId" });
+            DropIndex("dbo.Perfil", "RoleNameIndex");
+            DropIndex("dbo.Cavalo", new[] { "Numero" });
+            DropIndex("dbo.Cavalo", new[] { "Nome" });
+            DropTable("dbo.Logins");
+            DropTable("dbo.Claims");
+            DropTable("dbo.Usuarios");
+            DropTable("dbo.UsuariorPerfil");
+            DropTable("dbo.Perfil");
+            DropTable("dbo.Cavalo");
         }
     }
 }

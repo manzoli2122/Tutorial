@@ -7,14 +7,13 @@ using Tutorial.Models;
 
 namespace Tutorial.Persistence
 {
-    public interface ICavaloDAO : InterfaceDAO<Cavalo>
+    public interface ICavaloDAO : IGenericDAO<Cavalo>
     {
 
 
-         List<Cavalo> GetCavalosAtivos();
+        List<Cavalo> GetCavalosAtivos();
 
-
-
+         
         List<Cavalo> GetCavalosInativos();
 
 

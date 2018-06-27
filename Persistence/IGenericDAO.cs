@@ -39,6 +39,9 @@ namespace Tutorial.Persistence
 
         //DbSet<TEntity> ConjutoDeDados();
 
+
+
+
         // long retrieveFilteredCount(Filter<?> filter, String value);
 
         //List<T> retrieveWithFilter(Filter<?> filter, String value);

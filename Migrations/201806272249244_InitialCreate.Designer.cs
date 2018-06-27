@@ -13,7 +13,7 @@ namespace Tutorial.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201806261030332_InitialCreate"; }
+            get { return "201806272249244_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

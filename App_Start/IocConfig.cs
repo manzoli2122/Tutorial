@@ -22,6 +22,8 @@ namespace Tutorial.App_Start
             //Instrução para mapear a interface IPessoa para a classe concreta Pessoa
             kernel.Bind<ICavaloDAO>().To<CavaloDAO>();
 
+            //kernel.Bind<ICrudService>().To<CrudService>();
+
             kernel.Bind<ICavaloService>().To<CavaloService>();
 
             //GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);

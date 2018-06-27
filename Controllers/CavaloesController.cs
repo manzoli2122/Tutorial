@@ -36,7 +36,7 @@ namespace Tutorial.Controllers
         // GET: Cavaloes
         public ActionResult Index()
         {
-            return View(_db.GetCavalosAtivos());
+            return View(_cavaloService.getDAO().retrieveAll()); 
         }
 
         // GET: Cavaloes/Details/5
@@ -73,10 +73,12 @@ namespace Tutorial.Controllers
             if (ModelState.IsValid)
             {
                 cavalo.Ativo = true;
-                //await _db.Save(cavalo);
 
 
-                  _cavaloService.Cadastrar(cavalo);
+                 _db.Save(cavalo);
+
+
+                // _cavaloService.create(cavalo);
 
 
                 return RedirectToAction("Index");
@@ -89,6 +91,12 @@ namespace Tutorial.Controllers
 
             return View(cavalo);
         }
+
+
+
+
+
+
         /*
         // GET: Cavaloes/Edit/5
         public ActionResult Edit(int? id)

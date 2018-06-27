@@ -48,7 +48,7 @@ namespace Tutorial.Persistence
         {
             return ContextManager.Set<TEntity>();
         }
-
+         
 
 
         public List<TEntity> retrieveSome(int[] interval)
@@ -94,10 +94,8 @@ namespace Tutorial.Persistence
             return ContextManager.SaveChangesAsync(); 
         }
 
+
          
-
-
-        /*
 
         public DbSet<TEntity> ConjutoDeDados()
         {
@@ -105,7 +103,7 @@ namespace Tutorial.Persistence
 
         }
 
-        */
+         
 
 
 
@@ -114,8 +112,6 @@ namespace Tutorial.Persistence
             ContextManager.Dispose();
 
         }
-
-          
 
     }
 }

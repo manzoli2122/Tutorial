@@ -14,6 +14,7 @@ using Tutorial.Persistence;
 
 namespace Tutorial.Controllers
 {
+    
     public class Cavaloes1Controller : ApiController
     {
         private Context db = new Context();
@@ -37,7 +38,7 @@ namespace Tutorial.Controllers
         // GET: api/Cavaloes1
         public IQueryable<Cavalo> GetCavalos()
         {
-            return _cavaloService.GetCavalos();// db.Cavalos;
+            return _cavaloService.getDAO().GetAll();// db.Cavalos;
         }
 
 
@@ -51,7 +52,7 @@ namespace Tutorial.Controllers
         {
             //Cavalo cavalo = db.Cavalos.Find(id);
 
-            Cavalo cavalo = _cavaloService.GetCavalo(id);
+            Cavalo cavalo = _cavaloService.getDAO().Find(id);
 
             if (cavalo == null)
             {

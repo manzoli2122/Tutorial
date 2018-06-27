@@ -280,10 +280,6 @@ C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.cs
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.CopyComplete
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.dll
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.pdb
-C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate.resources
-C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.GenerateResource.cache
-C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate1.resources
-C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate2.resources
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.dll
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.xml
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.dll
@@ -293,3 +289,5 @@ C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\WebActivatorEx.dl
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.xml
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.Common.WebHost.xml
 C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\bin\Ninject.Web.WebApi.xml
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.Migrations.InitialCreate.resources
+C:\Users\DesenvolvimentoPHP\source\repos\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.GenerateResource.cache
