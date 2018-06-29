@@ -1,94 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Net; 
 using System.Web.Http;
 using System.Web.Http.Description;
 using Tutorial.Application;
 using Tutorial.Models;
-using Tutorial.Persistence;
 
 namespace Tutorial.Controllers
 {
     
-    public class Cavaloes1Controller : ApiController
+    public class CavaloesApiController : ApiController
     {
-        private Context db = new Context();
-
-         
+      
         private ICavaloService _cavaloService;
-
-
-
-
-        public Cavaloes1Controller(  ICavaloService cavaloService)
+         
+        public CavaloesApiController(  ICavaloService cavaloService)
         {            
             _cavaloService = cavaloService;
         }
-
          
-
-
-
-
-        // GET: api/Cavaloes1
+        // GET: api/CavaloesApi
         public IQueryable<Cavalo> GetCavalos()
         {
             return _cavaloService.ConjuntoDeDados(); 
         }
-
-
-
-
-
-
-        // GET: api/Cavaloes1/5
+         
+        // GET: api/CavaloesApi/5
         [ResponseType(typeof(Cavalo))]
         public IHttpActionResult GetCavalo(int id)
-        {
-            //Cavalo cavalo = db.Cavalos.Find(id);
-
-            Cavalo cavalo = _cavaloService.BuscarPeloId(id);
-
+        { 
+            Cavalo cavalo = _cavaloService.BuscarPeloId(id); 
             if (cavalo == null)
             {
                 return NotFound();
-            }
-
+            } 
             return Ok(cavalo);
         }
 
-
-
-
-
-
-
-
-
-        // PUT: api/Cavaloes1/5
+        // PUT: api/CavaloesApi/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCavalo(int id, Cavalo cavalo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }
-
+            } 
             if (id != cavalo.ID)
             {
                 return BadRequest();
-            }
-
-            db.Entry(cavalo).State = EntityState.Modified;
-
+            } 
             try
             {
-                db.SaveChanges();
+                _cavaloService.Atualizar(cavalo); 
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -100,8 +64,7 @@ namespace Tutorial.Controllers
                 {
                     throw;
                 }
-            }
-
+            } 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -113,10 +76,7 @@ namespace Tutorial.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.Cavalos.Add(cavalo);
-            db.SaveChanges();
-
+            _cavaloService.Salvar(cavalo);
             return CreatedAtRoute("DefaultApi", new { id = cavalo.ID }, cavalo);
         }
 
@@ -124,15 +84,12 @@ namespace Tutorial.Controllers
         [ResponseType(typeof(Cavalo))]
         public IHttpActionResult DeleteCavalo(int id)
         {
-            Cavalo cavalo = db.Cavalos.Find(id);
+            Cavalo cavalo = _cavaloService.BuscarPeloId(id);
             if (cavalo == null)
             {
                 return NotFound();
             }
-
-            db.Cavalos.Remove(cavalo);
-            db.SaveChanges();
-
+            _cavaloService.Apagar(cavalo);
             return Ok(cavalo);
         }
 
@@ -140,14 +97,14 @@ namespace Tutorial.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool CavaloExists(int id)
         {
-            return db.Cavalos.Count(e => e.ID == id) > 0;
+            return _cavaloService.EntityExists(id) ;
         }
     }
 }

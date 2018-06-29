@@ -65,6 +65,8 @@ namespace Tutorial.Persistence
         public void Dispose()
         {
             ContextManager.Dispose(); 
-        }  
+        }
+
+        public abstract bool EntityExists(int id);
     }
 }

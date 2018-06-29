@@ -71,5 +71,10 @@ namespace Tutorial.Application
         public void ValidarExclusao(TEntity entity){ }
          
         public void ValidarAtualizacao(TEntity entity){ }
+
+        public bool EntityExists(int id)
+        {
+            return getDAO().EntityExists(id);
+        }
     }
 }

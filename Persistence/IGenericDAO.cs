@@ -14,6 +14,7 @@ namespace Tutorial.Persistence
         IQueryable<TEntity> ConjuntoDeDados();   
         int Salvar(TEntity entity); 
         int Apagar(TEntity entity); 
-        int Atualizar(TEntity entity); 
+        int Atualizar(TEntity entity);
+        bool EntityExists(int id);
     }
 }

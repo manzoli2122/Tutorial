@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Net;
+using System.Web.Mvc;
 using Tutorial.Application;
-using Tutorial.Models;
-using Tutorial.Persistence;
+using Tutorial.Models; 
 
 namespace Tutorial.Controllers
 {
@@ -22,64 +22,39 @@ namespace Tutorial.Controllers
         }
 
         // GET: Cavaloes/Details/5
-        /*public ActionResult Details(int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cavalo cavalo = db.Cavalos.Find(id);
+            Cavalo cavalo = _cavaloService.BuscarPeloId((int)id);
             if (cavalo == null)
             {
                 return HttpNotFound();
             }
             return View(cavalo);
         }
-        */
-
-
+         
         // GET: Cavaloes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cavaloes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Cavaloes/Create 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Create(Cavalo cavalo)
+        [ValidateAntiForgeryToken] 
         public ActionResult  Create(Cavalo cavalo)
         {
             if (ModelState.IsValid)
-            {
-                cavalo.Ativo = true;
-
-
-                _cavaloService.Salvar(cavalo);
-
-
-                // _cavaloService.create(cavalo);
-
-
-                return RedirectToAction("Index");
-
-
-                //_db.Cavalos.Add(cavalo);
-                //_db.SaveChanges();
-                //return RedirectToAction("Index");
-            }
-
+            { 
+                _cavaloService.Salvar(cavalo); 
+                return RedirectToAction("Index"); 
+            } 
             return View(cavalo);
-        }
-
-
-
-
-
-
-        /*
+        } 
+        
         // GET: Cavaloes/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -87,29 +62,26 @@ namespace Tutorial.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cavalo cavalo = db.Cavalos.Find(id);
+            Cavalo cavalo = _cavaloService.BuscarPeloId((int)id);
             if (cavalo == null)
             {
                 return HttpNotFound();
             }
             return View(cavalo);
-        }
-
-        // POST: Cavaloes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        } 
+        
+        // POST: Cavaloes/Edit/5 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nome,Nascimento,Numero,Ativo")] Cavalo cavalo)
+        public ActionResult Edit( Cavalo cavalo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cavalo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                _cavaloService.Atualizar(cavalo);
+                return RedirectToAction("Index"); 
             }
             return View(cavalo);
-        }
+        } 
 
         // GET: Cavaloes/Delete/5
         public ActionResult Delete(int? id)
@@ -118,22 +90,21 @@ namespace Tutorial.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cavalo cavalo = db.Cavalos.Find(id);
+            Cavalo cavalo = _cavaloService.BuscarPeloId((int)id);
             if (cavalo == null)
             {
                 return HttpNotFound();
             }
             return View(cavalo);
-        }
-
+        } 
+        
         // POST: Cavaloes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cavalo cavalo = db.Cavalos.Find(id);
-            db.Cavalos.Remove(cavalo);
-            db.SaveChanges();
+            Cavalo cavalo = _cavaloService.BuscarPeloId(id);
+            _cavaloService.Apagar(cavalo); 
             return RedirectToAction("Index");
         }
 
@@ -141,11 +112,9 @@ namespace Tutorial.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+               // _cavaloService.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-    */
+        } 
     }
 }

@@ -22,5 +22,6 @@ namespace Tutorial.Application
         List<TEntity> Buscar(int[] interval);
         List<TEntity> Buscar( );
         IQueryable<TEntity> ConjuntoDeDados();
+        bool EntityExists(int id);
     }
 } 
