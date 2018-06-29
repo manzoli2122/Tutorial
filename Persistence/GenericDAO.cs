@@ -72,26 +72,26 @@ namespace Tutorial.Persistence
 
          
 
-        public virtual Task<int> Save(TEntity entity)
+        public virtual int Save(TEntity entity)
         {
             ContextManager.Set<TEntity>().Add(entity); 
-            return ContextManager.SaveChangesAsync(); 
+            return ContextManager.SaveChanges(); 
         }
 
           
 
-        public virtual Task<int> Update(TEntity entity)
+        public virtual int Update(TEntity entity)
         {
             ContextManager.Entry(entity).State = EntityState.Modified; 
-            return ContextManager.SaveChangesAsync(); 
+            return ContextManager.SaveChanges(); 
         }
          
           
 
-        public Task<int> Delete(TEntity entity)
+        public int Delete(TEntity entity)
         { 
             ContextManager.Set<TEntity>().Remove(entity);
-            return ContextManager.SaveChangesAsync(); 
+            return ContextManager.SaveChanges(); 
         }
 
 

@@ -28,13 +28,13 @@ namespace Tutorial.Persistence
         TEntity Find(int id);
 
 
-        Task<int> Save(TEntity entity);
+        int Save(TEntity entity);
 
         
-        Task<int> Delete(TEntity entity);
+        int Delete(TEntity entity);
 
 
-        Task<int> Update(TEntity entity);
+        int Update(TEntity entity);
 
 
         //DbSet<TEntity> ConjutoDeDados();
