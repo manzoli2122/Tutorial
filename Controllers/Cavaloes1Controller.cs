@@ -38,7 +38,7 @@ namespace Tutorial.Controllers
         // GET: api/Cavaloes1
         public IQueryable<Cavalo> GetCavalos()
         {
-            return _cavaloService.getDAO().GetAll();// db.Cavalos;
+            return _cavaloService.ConjuntoDeDados(); 
         }
 
 
@@ -52,7 +52,7 @@ namespace Tutorial.Controllers
         {
             //Cavalo cavalo = db.Cavalos.Find(id);
 
-            Cavalo cavalo = _cavaloService.getDAO().Find(id);
+            Cavalo cavalo = _cavaloService.BuscarPeloId(id);
 
             if (cavalo == null)
             {

@@ -1,22 +1,14 @@
-﻿using System;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web; 
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Host.SystemWeb;
-using System.Web.Mvc;
-using Tutorial.Persistence;
-using System.Data.Entity;
-using System.Threading.Tasks;
+using System.Web;  
+using Microsoft.AspNet.Identity.Owin; 
+using System.Data.Entity; 
 
 namespace Tutorial.Persistence
 {
     public abstract class GenericDAO<TEntity> : IGenericDAO<TEntity> where TEntity : class
     {
-
-
+         
         private Context _context;
         protected Context ContextManager
         {
@@ -25,93 +17,54 @@ namespace Tutorial.Persistence
                 return _context ?? HttpContext.Current.GetOwinContext().Get<Context>();
             }
 
-        }
+        } 
 
-
-
-
-        public long retrieveCount()
+        public long BuscarQuantidade()
         {
             return ContextManager.Set<TEntity>().LongCount();
         }
-
-
-
-        public List<TEntity> retrieveAll()
+          
+        public List<TEntity> Buscar()
         {
             return ContextManager.Set<TEntity>().ToList();
         }
 
-
-
-        public IQueryable<TEntity> GetAll()
+        public List<TEntity> Buscar(int[] interval)
+        {
+            return ContextManager.Set<TEntity>().Skip(interval[0]).Take(interval[1] - interval[0]).ToList();
+        }
+         
+        public IQueryable<TEntity> ConjuntoDeDados()
         {
             return ContextManager.Set<TEntity>();
         }
-         
-
-
-        public List<TEntity> retrieveSome(int[] interval)
-        {
-            return ContextManager.Set<TEntity>().Skip( interval[0]).Take(interval[1] - interval[0]).ToList();
-        }
-
-
-
-        public TEntity retrieveById(long id)
+           
+        public TEntity BuscarPeloId(int id)
         {
             return ContextManager.Set<TEntity>().Find(id);
         }
 
-
-
-        public TEntity Find(int id)
-        {
-            return ContextManager.Set<TEntity>().Find(id);
-        }
-
-         
-
-        public virtual int Save(TEntity entity)
+        public virtual int Salvar(TEntity entity)
         {
             ContextManager.Set<TEntity>().Add(entity); 
             return ContextManager.SaveChanges(); 
         }
-
-          
-
-        public virtual int Update(TEntity entity)
+         
+        public virtual int Atualizar(TEntity entity)
         {
             ContextManager.Entry(entity).State = EntityState.Modified; 
             return ContextManager.SaveChanges(); 
         }
-         
           
-
-        public int Delete(TEntity entity)
+        public int Apagar(TEntity entity)
         { 
             ContextManager.Set<TEntity>().Remove(entity);
             return ContextManager.SaveChanges(); 
         }
-
-
          
-
-        public DbSet<TEntity> ConjutoDeDados()
-        {
-            return ContextManager.Set<TEntity>();
-
-        }
-
-         
-
-
-
         public void Dispose()
         {
-            ContextManager.Dispose();
-
-        }
-
+            ContextManager.Dispose(); 
+        }  
     }
 }

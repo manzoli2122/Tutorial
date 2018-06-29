@@ -8,98 +8,68 @@ namespace Tutorial.Application
 {
     public abstract class CrudService<TEntity> : ICrudService<TEntity> where TEntity : class
     {
-
-
-        public abstract IGenericDAO<TEntity> getDAO();
-
-
          
-
-        public void authorize()
-        {
-             
-        }
-
-
-        protected TEntity validate(TEntity newEntity, TEntity oldEntity)
+        public abstract IGenericDAO<TEntity> getDAO();
+          
+        public void Autorizar() {  }
+         
+        protected TEntity Validar(TEntity newEntity, TEntity oldEntity)
         { 
             return newEntity;
         }
-
-
-
-
-        public long count()
+         
+        public long BuscarQuantidade()
         {
-            return getDAO().retrieveCount(); 
+            return getDAO().BuscarQuantidade(); 
         }
-
-
-
-        public void create(TEntity entity)
+         
+        public void Salvar(TEntity entity)
         {
-            entity = validate(entity, null);
-             
-            getDAO().Save(entity); 
-
+            entity = Validar(entity, null); 
+            getDAO().Salvar(entity);  
         }
-
-
-
-        public void delete(TEntity entity)
+         
+        public void Apagar(TEntity entity)
         { 
             if (entity != null)
             { 
-                getDAO().Delete(entity); 
+                getDAO().Apagar(entity); 
             }
         }
-
-        
-
-        public List<TEntity> list(int[] interval)
+         
+        public List<TEntity> Buscar(int[] interval)
         {
-            List<TEntity> entities = getDAO().retrieveSome(interval); 
+            List<TEntity> entities = getDAO().Buscar(interval); 
             return entities;
         }
 
-
-
-        public TEntity retrieve(long id)
+        public List<TEntity> Buscar( )
         {
-            TEntity entity = getDAO().retrieveById(id); 
+            List<TEntity> entities = getDAO().Buscar( );
+            return entities;
+        }
+
+        public IQueryable<TEntity> ConjuntoDeDados()
+        {
+            return getDAO().ConjuntoDeDados();
+        }
+
+        public TEntity BuscarPeloId(int id)
+        {
+            TEntity entity = getDAO().BuscarPeloId(id); 
             return entity;
         }
-
-
-
-        public void update(TEntity entity)
+         
+        public void Atualizar(TEntity entity)
         {
-            entity = validate(entity, null );
-             
-            getDAO().Save(entity);
-
+            entity = Validar(entity, null ); 
+            getDAO().Atualizar(entity); 
         }
-
-
-
-
-        public void validateCreate(TEntity entity)
-        {
-             
-        }
-
-
-
-        public void validateDelete(TEntity entity)
-        {
-             
-        }
-
-
-
-        public void validateUpdate(TEntity entity)
-        {
-             
-        }
+         
+        public void ValidarCriacao(TEntity entity){  }
+         
+        public void ValidarExclusao(TEntity entity){ }
+         
+        public void ValidarAtualizacao(TEntity entity){ }
     }
 }

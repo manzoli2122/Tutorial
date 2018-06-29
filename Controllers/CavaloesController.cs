@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Tutorial.Application;
 using Tutorial.Models;
 using Tutorial.Persistence;
@@ -14,29 +6,19 @@ using Tutorial.Persistence;
 namespace Tutorial.Controllers
 {
     public class CavaloesController : Controller
-    {
-        //private Context db = new Context();
+    { 
 
-
-        //private CavaloDAO db = new ICavaloDAO();
-
-        private ICavaloDAO _db ;
         private ICavaloService _cavaloService;
 
-        public CavaloesController(ICavaloDAO db, ICavaloService cavaloService)
-        {
-            _db = db;
+        public CavaloesController( ICavaloService cavaloService )
+        { 
             _cavaloService = cavaloService;
-        }
-
-
-        
-
+        } 
 
         // GET: Cavaloes
         public ActionResult Index()
         {
-            return View(_cavaloService.getDAO().retrieveAll()); 
+            return View( _cavaloService.Buscar() ); 
         }
 
         // GET: Cavaloes/Details/5
@@ -75,7 +57,7 @@ namespace Tutorial.Controllers
                 cavalo.Ativo = true;
 
 
-                 _db.Save(cavalo);
+                _cavaloService.Salvar(cavalo);
 
 
                 // _cavaloService.create(cavalo);

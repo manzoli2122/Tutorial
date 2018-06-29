@@ -1,61 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Collections.Generic; 
 using Tutorial.Models;
 using Tutorial.Persistence;
 
 namespace Tutorial.Application
-{
-
-    // [Authorize]
+{ 
     public class CavaloService : CrudService<Cavalo> , ICavaloService
     {
-
-
-
+         
         private ICavaloDAO _db;
-
-
+         
         public CavaloService(ICavaloDAO db)
         {
             _db = db;
         }
-
-
 
         public override IGenericDAO<Cavalo> getDAO()
         {
             return _db;
         }
 
-
-
-
-        public bool Cadastrar(Cavalo cavalo)
+        public List<Cavalo> GetCavalosAtivos()
         {
-
-            _db.Save(cavalo);
-                        
-            return true;
+            return _db.GetCavalosAtivos();
         }
 
-
-        public IQueryable<Cavalo> GetCavalos()
+        public List<Cavalo> GetCavalosInativos()
         {
-            //return null;
-            return _db.GetAll();
+            return _db.GetCavalosInativos();
         }
-
-
-
-        public Cavalo GetCavalo(int id)
-        {
-            Cavalo cavalo = _db.Find(id);
-            return cavalo; 
-        }
-
-        
+         
     }
 }
