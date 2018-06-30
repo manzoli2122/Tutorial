@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using Ninject;
 using Ninject.Syntax;
@@ -21,20 +18,14 @@ namespace Tutorial.App_Start
 
             //Instrução para mapear a interface IPessoa para a classe concreta Pessoa
             kernel.Bind<ICavaloDAO>().To<CavaloDAO>();
-
-            //kernel.Bind<ICrudService>().To<CrudService>();
-
+            
             kernel.Bind<ICavaloService>().To<CavaloService>();
-
-            //GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
-
+            
             //Registra o container no ASP.NET
             DependencyResolver.SetResolver(new NinjectDependencyResolver1(kernel));
         }
-
-
+        
     }
-
      
     public class NinjectDependencyResolver1 : IDependencyResolver
     {
@@ -55,7 +46,5 @@ namespace Tutorial.App_Start
             return _resolutionRoot.GetAll(serviceType);
         }
     }
-
     
-
 }

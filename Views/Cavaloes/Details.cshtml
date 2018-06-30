@@ -4,40 +4,31 @@
     ViewBag.Title = "Details";
 }
 
-
-
 <div class="col-12">
-     
-     
-        <div class="card card-primary  ">
 
-            <div class="card-header">
-                teste
-            </div>
-            <div class="card-body">
+    <div class="card card-primary  ">
+        <div class="card-header">
+            teste
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">  @Html.DisplayNameFor(model => model.Nome): @Html.DisplayFor(model => model.Nome)  </h5>
 
-                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Nome): @Html.DisplayFor(model => model.Nome)  </h5>
-                
-                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Nascimento): @Html.DisplayFor(model => model.Nascimento)  </h5>
+            <h5 class="card-title">  @Html.DisplayNameFor(model => model.Nascimento): @Html.DisplayFor(model => model.Nascimento)  </h5>
 
-                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Numero): @Html.DisplayFor(model => model.Numero)  </h5>
+            <h5 class="card-title">  @Html.DisplayNameFor(model => model.Numero): @Html.DisplayFor(model => model.Numero)  </h5>
 
-                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Ativo): @Html.DisplayFor(model => model.Ativo)  </h5>
+            <h5 class="card-title">  @Html.DisplayNameFor(model => model.Ativo): @Html.DisplayFor(model => model.Ativo)  </h5>
 
-            </div>
-            <div class="card-footer">
-                @Html.ActionLink("Voltar para lista", "Index")
-            </div>
-        </div> 
+        </div>
+        <div class="card-footer">
+            @Html.ActionLink("Voltar para lista", "Index")
+        </div>
+    </div>
 
- 
 </div>
-
-
- 
 
 @section Content {
     Detalhes do Cavalo <small style="float:right">
-        @Html.ActionLink("Editar", "Edit", new { id = Model.ID })  
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ID })
     </small>
 }

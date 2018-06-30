@@ -55,33 +55,33 @@
                 </tbody>
             </table>
 
-            </div>
         </div>
     </div>
+</div>
 
 
 
-            @section Scripts {
-                @Scripts.Render("~/bundles/datatable")
+@section Scripts {
+    @Scripts.Render("~/bundles/datatable")
 
-                <script>
-                    $(function () {
-                        $("#example1").DataTable();
-                        $('#example2').DataTable({
-                            "paging": true,
-                            "lengthChange": false,
-                            "searching": false,
-                            "ordering": true,
-                            "info": true,
-                            "autoWidth": false
-                        });
-                    });
-                </script>
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
 
-            }
+}
 
 
 
-            @section Content {
-                Datatable  <small style="float:right"> @Html.ActionLink("Cadastrar Novo", "Create") </small>
-            }
+@section Content {
+    Datatable  <small style="float:right"> @Html.ActionLink("Cadastrar Novo", "Create") </small>
+}

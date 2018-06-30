@@ -3,12 +3,12 @@
 @{
     ViewBag.Title = "Cadastrar";
 }
- 
-<div class="col-md-12"> 
+
+<div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Formulário</h3>
-        </div> 
+        </div>
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -18,41 +18,37 @@
                     @Html.LabelFor(model => model.Nome)
                     @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
-                </div> 
+                </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Nascimento)
                     @Html.EditorFor(model => model.Nascimento, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Nascimento, "", new { @class = "text-danger" })
-                </div> 
+                </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Numero)
                     @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
-                </div> 
+                </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Ativo)
                     <div class="checkbox">
                         @Html.EditorFor(model => model.Ativo)
                         @Html.ValidationMessageFor(model => model.Ativo, "", new { @class = "text-danger" })
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         }
 
-         
-         
     </div>
 </div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
-
-
-    @section Content {
-        Cadastrar novo Cavalo <small style="float:right"> @Html.ActionLink("Voltar para Lista", "Index")  </small>
-    }
+@section Content {
+    Cadastrar novo Cavalo <small style="float:right"> @Html.ActionLink("Voltar para Lista", "Index")  </small>
+}
