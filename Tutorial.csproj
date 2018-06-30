@@ -320,6 +320,7 @@
     <Content Include="Views\Cavaloes\Details.cshtml" />
     <Content Include="Views\Cavaloes\Edit.cshtml" />
     <Content Include="Views\Cavaloes\Index.cshtml" />
+    <Content Include="Views\Cavaloes\Datatable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,8 +7,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - AdminLTE 3 </title>
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -89,6 +91,13 @@
                             <a href="@Url.Action("Index", "Cavaloes")" class="nav-link">
                                 <i class="nav-icon fa fa-apple"></i>
                                 <p>  Cavalo  </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="@Url.Action("Datatable", "Cavaloes")" class="nav-link">
+                                <i class="nav-icon fa fa-apple"></i>
+                                <p>  Cavalo datatable  </p>
                             </a>
                         </li>
 

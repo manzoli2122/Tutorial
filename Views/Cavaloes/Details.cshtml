@@ -5,48 +5,39 @@
 }
 
 
-<div class="col-sm-12">
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+<div class="col-12">
+     
+     
+        <div class="card card-primary  ">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nascimento)
-        </dt>
+            <div class="card-header">
+                teste
+            </div>
+            <div class="card-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.Nascimento)
-        </dd>
+                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Nome): @Html.DisplayFor(model => model.Nome)  </h5>
+                
+                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Nascimento): @Html.DisplayFor(model => model.Nascimento)  </h5>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Numero)
-        </dt>
+                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Numero): @Html.DisplayFor(model => model.Numero)  </h5>
 
-        <dd>
-            @Html.DisplayFor(model => model.Numero)
-        </dd>
+                <h5 class="card-title">  @Html.DisplayNameFor(model => model.Ativo): @Html.DisplayFor(model => model.Ativo)  </h5>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ativo)
-        </dt>
+            </div>
+            <div class="card-footer">
+                @Html.ActionLink("Voltar para lista", "Index")
+            </div>
+        </div> 
 
-        <dd>
-            @Html.DisplayFor(model => model.Ativo)
-        </dd>
-
-    </dl>
+ 
 </div>
 
 
+ 
+
 @section Content {
-    Detalhes Cavalo <small style="float:right">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
+    Detalhes do Cavalo <small style="float:right">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ID })  
     </small>
 }

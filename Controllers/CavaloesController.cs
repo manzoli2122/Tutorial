@@ -15,10 +15,19 @@ namespace Tutorial.Controllers
             _cavaloService = cavaloService;
         } 
 
+
+
         // GET: Cavaloes
         public ActionResult Index()
         {
             return View( _cavaloService.Buscar() ); 
+        }
+
+
+        // GET: Cavaloes
+        public ActionResult Datatable()
+        {
+            return View(_cavaloService.Buscar());
         }
 
         // GET: Cavaloes/Details/5

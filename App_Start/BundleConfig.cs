@@ -30,13 +30,33 @@ namespace Tutorial
                      "~/Content/AdminLTE/dist/js/adminlte.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      
+
                       //"~/Content/bootstrap.css",
-                      "~/Content/AdminLTE/plugins/bootstrap/css/bootstrap.css",
+                      
+                      //"~/Content/AdminLTE/plugins/bootstrap/css/bootstrap.css",
                       "~/Content/AdminLTE/plugins/font-awesome/css/font-awesome.min.css",
-                    //  "~/Content/AdminLTE/dist/css/adminlte.css",
+
+                      "~/Content/AdminLTE/plugins/datatables/dataTables.bootstrap4.css",
+
                       "~/Content/AdminLTE/dist/css/adminlte.css"
                       ));
+
+            
+              bundles.Add(new ScriptBundle("~/bundles/datatable").Include(
+
+                    "~/Content/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js",
+
+                       "~/Content/AdminLTE/plugins/datatables/jquery.dataTables.js",
+                       "~/Content/AdminLTE/plugins/datatables/dataTables.bootstrap4.js",
+
+                       "~/Content/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js",
+
+                       "~/Content/AdminLTE/plugins/fastclick/fastclick.js"
+
+
+                       )
+                   ) ;
+
         }
     }
 }

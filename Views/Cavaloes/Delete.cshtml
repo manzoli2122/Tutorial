@@ -1,65 +1,59 @@
 ﻿@model Tutorial.Models.Cavalo
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Apagar";
 }
 
-<h3>Você tem certeza que deseja apagar isto?</h3>
-<div>
-    <hr/>
-    <p>
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Nascimento)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Nascimento)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Numero)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Numero)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Ativo)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Ativo)
-            </dd>
-
-        </dl>
-
-    </p>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" />  
-           
+<div class="col-md-12">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Dados</h3>
         </div>
-    }
+
+        <div class="card-body">
+
+            <div class="form-group">
+                <b>@Html.DisplayNameFor(model => model.Nome):</b>
+                @Html.DisplayFor(model => model.Nome)
+            </div>
+
+            <div class="form-group">
+                <b>@Html.DisplayNameFor(model => model.Nascimento):</b>
+                @Html.DisplayFor(model => model.Nascimento)
+            </div>
+            <div class="form-group">
+                <b>@Html.DisplayNameFor(model => model.Numero):</b>
+                @Html.DisplayFor(model => model.Numero)
+            </div>
+
+            <div class="form-group">
+                <b>@Html.DisplayNameFor(model => model.Ativo):</b>
+                @Html.DisplayFor(model => model.Ativo)
+            </div>
+
+
+        </div>
+        <div class="card-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Apagar" class="btn btn-danger" />
+                </div>
+            }
+        </div>
+
+    </div>
 </div>
 
 
 
+
+
+
 @section Content {
-    Apagar Cavalo <small style="float:right">
-    @Html.ActionLink("Back to List", "Index")
-</small>
+    Você tem certeza que deseja apagar o Cavalo? <small style="float:right">
+        @Html.ActionLink("Voltar para lista", "Index")
+    </small>
 }
